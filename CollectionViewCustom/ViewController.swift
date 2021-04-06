@@ -35,7 +35,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.awakeFromNib()
     }
     
-    var items = ["Item 1 ", "Item 2 ", "Item 3 ", "Item 4 ", "Item 5 ", "Item 6 ", "Item 7 ", "Item 8 ", "Item 9 "]
+    var items = ["Item 1 ", "Item 2 ", "Item 3 ", "Item 4 ", "Item 5 ", "Item 6 ", "Item 7 ", "Item 8 ", "Item 9 ",
+                 "Item 1 ", "Item 2 ", "Item 3 ", "Item 4 ", "Item 5 ", "Item 6 ", "Item 7 ", "Item 8 ", "Item 9 ",
+                 "Item 1 ", "Item 2 ", "Item 3 ", "Item 4 ", "Item 5 ", "Item 6 ", "Item 7 ", "Item 8 ", "Item 9 ",
+                 "Item 1 ", "Item 2 ", "Item 3 ", "Item 4 ", "Item 5 ", "Item 6 ", "Item 7 ", "Item 8 ", "Item 9 ",
+                 "Item 1 ", "Item 2 ", "Item 3 ", "Item 4 ", "Item 5 ", "Item 6 ", "Item 7 ", "Item 8 ", "Item 9 "]
 
     
     
@@ -58,7 +62,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         layout.minimumLineSpacing = itemSpacing
         layout.scrollDirection = .horizontal
         collectionView!.collectionViewLayout = layout
-        collectionView?.decelerationRate = UIScrollViewDecelerationRateFast
+//        collectionView?.decelerationRate = UIScrollViewDecelerationRateNormal
     
         
     }
@@ -89,7 +93,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let contentWidth = Float(collectionView!.contentSize.width  )
         var newPage = Float(self.currentItem)
         
-        if velocity.x == 0 {
+        if velocity.x == 100 {
             newPage = floor( (targetXContentOffset - Float(pageWidth) / 2) / Float(pageWidth)) + 1.0
         } else {
             newPage = Float(velocity.x > 0 ? self.currentItem + 1 : self.currentItem - 1)
@@ -102,8 +106,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         
         self.currentItem = Int(newPage)
+        print("CURRENT ITEM - ", currentItem)
         let point = CGPoint (x: CGFloat(newPage * pageWidth), y: targetContentOffset.pointee.y)
         targetContentOffset.pointee = point
     }
+  
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    print("END")
+  }
 
 }
