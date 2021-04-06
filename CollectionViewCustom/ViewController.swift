@@ -10,11 +10,10 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
 
-    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
     let reuseIdentifier = "CustomCell"
-    let collectionMargin = CGFloat(16)
-    let itemSpacing = CGFloat(10)
+    let collectionMargin = CGFloat(0)
+    let itemSpacing = CGFloat(20)
     let itemHeight = CGFloat(322)
     
     var itemWidth = CGFloat(0)
@@ -36,7 +35,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.awakeFromNib()
     }
     
-    var items = ["Item 1 ", "Item 2 ", "Item 3 "]
+    var items = ["Item 1 ", "Item 2 ", "Item 3 ", "Item 4 ", "Item 5 ", "Item 6 ", "Item 7 ", "Item 8 ", "Item 9 "]
 
     
     
@@ -49,7 +48,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
-        itemWidth =  UIScreen.main.bounds.width - collectionMargin * 2.0
+        itemWidth = 250
         
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
@@ -64,12 +63,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.pageControl.numberOfPages = items.count
+//        self.pageControl.numberOfPages = items.count
         return items.count
     }
     
@@ -92,12 +87,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let pageWidth = Float(itemWidth + itemSpacing)
         let targetXContentOffset = Float(targetContentOffset.pointee.x)
         let contentWidth = Float(collectionView!.contentSize.width  )
-        var newPage = Float(self.pageControl.currentPage)
+        var newPage = Float(self.currentItem)
         
         if velocity.x == 0 {
             newPage = floor( (targetXContentOffset - Float(pageWidth) / 2) / Float(pageWidth)) + 1.0
         } else {
-            newPage = Float(velocity.x > 0 ? self.pageControl.currentPage + 1 : self.pageControl.currentPage - 1)
+            newPage = Float(velocity.x > 0 ? self.currentItem + 1 : self.currentItem - 1)
             if newPage < 0 {
                 newPage = 0
             }
@@ -106,10 +101,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             }
         }
         
-        self.pageControl.currentPage = Int(newPage)
+        self.currentItem = Int(newPage)
         let point = CGPoint (x: CGFloat(newPage * pageWidth), y: targetContentOffset.pointee.y)
         targetContentOffset.pointee = point
     }
 
 }
-

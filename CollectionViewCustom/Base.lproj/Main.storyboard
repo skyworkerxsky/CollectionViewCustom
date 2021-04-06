@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -69,28 +66,16 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="sBC-ll-Jf9"/>
                                 </connections>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="TD8-V5-abv">
-                                <rect key="frame" x="16" y="452" width="343" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="BhX-ER-IcM"/>
-                                </constraints>
-                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <color key="currentPageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="TD8-V5-abv" secondAttribute="trailing" id="30v-QM-hML"/>
                             <constraint firstItem="t9b-aC-Lbf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4GC-Y0-p8N"/>
-                            <constraint firstItem="TD8-V5-abv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Hk4-7B-e26"/>
                             <constraint firstAttribute="trailing" secondItem="t9b-aC-Lbf" secondAttribute="trailing" id="KfG-Lj-pa1"/>
-                            <constraint firstItem="TD8-V5-abv" firstAttribute="top" secondItem="t9b-aC-Lbf" secondAttribute="bottom" constant="8" id="OAT-Dn-xqr"/>
                             <constraint firstItem="t9b-aC-Lbf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="44" id="bxp-eu-OIh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="t9b-aC-Lbf" id="6Yb-wI-7dX"/>
-                        <outlet property="pageControl" destination="TD8-V5-abv" id="Wau-d7-tdt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
