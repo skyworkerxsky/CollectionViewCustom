@@ -93,7 +93,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let contentWidth = Float(collectionView!.contentSize.width  )
         var newPage = Float(self.currentItem)
         
-        if velocity.x == 100 {
+        if velocity.x == 0 {
             newPage = floor( (targetXContentOffset - Float(pageWidth) / 2) / Float(pageWidth)) + 1.0
         } else {
             newPage = Float(velocity.x > 0 ? self.currentItem + 1 : self.currentItem - 1)
